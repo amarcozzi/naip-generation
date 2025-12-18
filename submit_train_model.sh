@@ -11,7 +11,8 @@
 module load cuda
 
 source /project/umontana_fire_modeling/anthony.marcozzi/miniforge3/etc/profile.d/conda.sh
-conda activate canopy-flow
+conda activate naip-gen
 
 python model.py \
-    --dataset_name coconino_nf
+    --dataset_name coconino_nf \
+    --batch_size 64
