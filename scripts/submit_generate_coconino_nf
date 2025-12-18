@@ -12,8 +12,8 @@ conda activate naip-gen
 python generate.py \
     --roi-file polygons/coconino_nf.geojson \
     --gsd 0.3 \
-    --train 10000 \
-    --test 1000 \
-    --val 1000 \
+    --train 250000 \
+    --test 50000 \
+    --val 0 \
     --png \
     coconino_nf
