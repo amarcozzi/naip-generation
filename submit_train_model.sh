@@ -15,4 +15,5 @@ conda activate naip-gen
 
 python model.py \
     --dataset_name coconino_chunk \
-    --batch_size 16
+    --batch_size 8 \
+
