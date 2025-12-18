@@ -16,4 +16,5 @@ python generate.py \
     --test 50000 \
     --val 0 \
     --png \
+    --num-workers 40 \
     coconino_nf

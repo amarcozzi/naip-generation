@@ -14,5 +14,5 @@ source /project/umontana_fire_modeling/anthony.marcozzi/miniforge3/etc/profile.d
 conda activate naip-gen
 
 python model.py \
-    --dataset_name coconino_nf \
+    --dataset_name coconino_chunk \
     --batch_size 64
