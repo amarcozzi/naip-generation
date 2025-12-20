@@ -366,11 +366,23 @@ def train(args):
     # Set up optimizer
     optimizer = Adam(model.parameters(), lr=args.lr)
 
+    start_epoch = 0
+    if args.resume_from:
+        if os.path.exists(args.resume_from):
+            logger.info(f"Loading checkpoint from {args.resume_from}")
+            checkpoint = torch.load(args.resume_from, map_location=device)
+            model.load_state_dict(checkpoint["model_state_dict"])
+            optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
+            start_epoch = checkpoint["epoch"] + 1
+            logger.info(f"Resuming from epoch {start_epoch}")
+        else:
+            logger.warning(f"Checkpoint not found at {args.resume_from}, starting from scratch")
+
     # Set up flow matching path
     path = CondOTProbPath()
 
     # Training loop
-    for epoch in range(args.num_epochs):
+    for epoch in range(start_epoch, args.num_epochs):
         model.train()
         epoch_loss = 0.0
 
@@ -517,6 +529,12 @@ def main():
     )
     parser.add_argument(
         "--num_workers", type=int, default=4, help="Number of dataloader workers"
+    )
+    parser.add_argument(
+        "--resume_from",
+        type=str,
+        default=None,
+        help="Path to checkpoint to resume from",
     )
 
     # Sampling arguments
