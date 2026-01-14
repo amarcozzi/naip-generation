@@ -12,8 +12,9 @@ conda activate naip-gen
 python generate.py \
     --roi-file polygons/coconino_chunk.geojson \
     --gsd 0.3 \
-    --train 10000 \
-    --test 1000 \
+    --train 20000 \
+    --test 10000 \
     --val 0 \
     --png \
+    --num-workers 40 \
     coconino_chunk
