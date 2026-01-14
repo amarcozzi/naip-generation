@@ -16,5 +16,5 @@ conda activate naip-gen
 python model.py \
     --dataset_name coconino_chunk \
     --batch_size 8 \
-    --resume_from output/checkpoint_500.pt
+    --resume_from output/checkpoint_440.pt
 
