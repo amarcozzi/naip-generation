@@ -16,5 +16,5 @@ conda activate naip-gen
 python sample.py \
     --checkpoint output/checkpoint_500.pt \
     --num_samples 10000 \
-    --output_dir generated_samples \
+    --output_dir naip_samples \
     --batch_size 8
