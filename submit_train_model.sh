@@ -1,10 +1,10 @@
 #!/bin/bash
 #SBATCH --account=umontana_fire_modeling
-#SBATCH --partition=gpu-a100
-#SBATCH --gres=gpu:a100:1
+#SBATCH --partition=gpu-l40s
+#SBATCH --gres=gpu:l40s:1
 #SBATCH --job-name="gen_naip"
 #SBATCH --cpus-per-task=8
-#SBATCH --mem=128G
+#SBATCH --mem=64G
 #SBATCH --time=2-0
 #SBATCH --output=log_model_train.out
 
@@ -16,5 +16,5 @@ conda activate naip-gen
 python model.py \
     --dataset_name coconino_chunk \
     --batch_size 8 \
-    --resume_from output/checkpoint_260.pt
+    --resume_from output/checkpoint_500.pt
 

@@ -479,6 +479,10 @@ def train(args):
                     "model_state_dict": model.state_dict(),
                     "optimizer_state_dict": optimizer.state_dict(),
                     "loss": epoch_loss,
+                    "model_channels": args.model_channels,
+                    "channel_mult": args.channel_mult,
+                    "num_res_blocks": args.num_res_blocks,
+                    "image_size": args.image_size,
                 },
                 checkpoint_path,
             )
