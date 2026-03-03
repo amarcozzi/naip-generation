@@ -15,7 +15,7 @@ python generate.py \
     --train 250000 \
     --test 50000 \
     --val 0 \
-    --patch_size 256 \
+    --patch-size 256 \
     --png \
     --num-workers 40 \
     coconino_nf
